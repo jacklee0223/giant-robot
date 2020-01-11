@@ -1,6 +1,16 @@
 body {
-  background: #585858 100%;
   color: #eaeaea 100%;
   font: Merriweather-Regular;
   size: 14px;
+  margin: 0;
+}
+
+.app {
+  display: flex;
+}
+
+@media (max-width: 480px) {
+  .app {
+    flex-direction: column;
+  }
 }
