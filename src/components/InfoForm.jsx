@@ -46,7 +46,13 @@ export default class InfoForm extends Component {
   };
 
   handleNext = () => {
-    const { firstName, lastName, address, missingRequiredFields } = this.state;
+    const {
+      firstName,
+      lastName,
+      address,
+      addressTwo,
+      missingRequiredFields
+    } = this.state;
     const hasAllRequired =
       firstName.length && lastName.length && address.length;
     const missingFields = [];
@@ -63,8 +69,10 @@ export default class InfoForm extends Component {
       this.setState({ missingRequiredFields: missingFields });
     }
 
-    if (!missingRequiredFields.length && hasAllRequired) {
-      this.setState({ missingRequiredFields: [] });
+    if (hasAllRequired) {
+      alert(
+        `Name: ${firstName} ${lastName}\nAddress: ${address} ${addressTwo}`
+      );
     }
   };
 
@@ -82,14 +90,6 @@ export default class InfoForm extends Component {
   };
 
   render() {
-    const {
-      firstName,
-      lastName,
-      address,
-      addressTwo,
-      missingRequiredFields
-    } = this.state;
-
     return (
       <div className="info-form">
         <div className="label-input-container">
