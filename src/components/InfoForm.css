@@ -27,7 +27,28 @@
   padding-left: 16px;
 }
 
+.label-input-container .required-missing {
+  background-color: #ffffff;
+  border: 1px solid #e70000;
+}
+
+.label-input-container .has-input {
+  background-color: #ffffff;
+  border: 1px solid #00adee;
+}
+
 .label-input-container textarea:focus,
 .label-input-container input:focus {
   outline: none;
+}
+
+.next-button {
+  background-color: #ffab44;
+  border-radius: 6px;
+  color: #ffffff;
+  font-family: 'Roboto', serif;
+  font-size: 16px;
+  height: 48px;
+  padding: 0 24px;
+  margin-top: 48px;
 }
