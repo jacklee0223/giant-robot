@@ -1,0 +1,21 @@
+.info-form {
+  background: white;
+  padding: 5vw 5vh;
+}
+
+.label-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-input-container label {
+  color: #666666;
+  font-family: 'Merriweather', serif;
+  font-size: 12px;
+}
+
+.label-input-container input {
+  color: #666666;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
