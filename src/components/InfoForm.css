@@ -18,4 +18,15 @@
   color: #666666;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
+  background-color: #f7f7f7;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  height: 48px;
+  width: 400px;
+  padding-left: 16px;
+}
+
+.label-input-container textarea:focus,
+.label-input-container input:focus {
+  outline: none;
 }
