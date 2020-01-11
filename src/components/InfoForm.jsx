@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './InfoForm.css';
 
 export default class InfoForm extends Component {
@@ -11,13 +11,13 @@ export default class InfoForm extends Component {
       lastName: '',
       address: '',
       addressTwo: '',
+      requiredFields: ['firstName', 'lastName', 'address'],
       missingRequiredFields: []
     };
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { missingRequiredFields } = this.state;
-    const requiredFields = ['firstName', 'lastName', 'address'];
+    const { missingRequiredFields, requiredFields } = this.state;
 
     if (_.isEqual(prevState, this.state)) {
       return;
@@ -76,36 +76,62 @@ export default class InfoForm extends Component {
     }
   };
 
+  formatLabel = inputName => {
+    const { requiredFields } = this.state;
+    const optionalString = !_.includes(requiredFields, inputName)
+      ? ' (OPTIONAL)'
+      : '';
+    const formattedLabel = `${_.startCase(
+      inputName
+    ).toUpperCase()}${optionalString}`;
+
+    return formattedLabel;
+  };
+
   renderInput = inputName => {
     const { missingRequiredFields } = this.state;
+    console.log(missingRequiredFields, inputName);
 
     return (
-      <input
-        className={`${this.state[inputName].length > 0 ? 'has-input' : ''} ${
-          _.includes(missingRequiredFields, inputName) ? 'required-missing' : ''
-        }`}
-        onChange={e => this.onInputChange(e, inputName)}
-      />
+      <Fragment>
+        <label>
+          {this.formatLabel(inputName)}{' '}
+          {_.includes(missingRequiredFields, inputName) ? (
+            <p className="required">REQUIRED</p>
+          ) : (
+            ''
+          )}
+        </label>
+        <input
+          className={`${this.state[inputName].length > 0 ? 'has-input' : ''} ${
+            _.includes(missingRequiredFields, inputName)
+              ? 'required-missing'
+              : ''
+          }`}
+          onChange={e => this.onInputChange(e, inputName)}
+        />
+      </Fragment>
     );
   };
 
   render() {
+    const { missingRequiredFields } = this.state;
+
     return (
       <div className="info-form">
         <div className="label-input-container">
-          <label>FIRST NAME</label>
+          <label>
+            {_.includes(missingRequiredFields, 'firstName' ? 'Required' : '')}
+          </label>
           {this.renderInput('firstName')}
         </div>
         <div className="label-input-container">
-          <label>LAST NAME</label>
           {this.renderInput('lastName')}
         </div>
         <div className="label-input-container">
-          <label>ADDRESS</label>
           {this.renderInput('address')}
         </div>
         <div className="label-input-container">
-          <label>ADDRESS 2 (OPTIONAL)</label>
           {this.renderInput('addressTwo')}
         </div>
         <button className="next-button" onClick={this.handleNext}>

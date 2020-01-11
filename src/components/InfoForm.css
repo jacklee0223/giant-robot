@@ -27,6 +27,11 @@
   padding-left: 16px;
 }
 
+.label-input-container .required {
+  display: inline;
+  color: #ff0000;
+}
+
 .label-input-container .required-missing {
   background-color: #ffffff;
   border: 1px solid #e70000;
