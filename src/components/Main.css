@@ -1,4 +1,27 @@
+.main {
+  width: 535px;
+  margin-left: 10vw;
+  margin-top: 32px;
+}
+
 .top-logo-container {
   height: 26px;
   width: 177px;
+}
+
+.welcome-text {
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  margin-top: 10vh;
+  margin-top: 7vh;
+}
+
+.about-yourself-text {
+  color: #eaeaea;
+  font-family: 'Merriweather', serif;
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: 2.5vh;
 }
