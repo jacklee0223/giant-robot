@@ -1,10 +1,11 @@
 import React from 'react';
-import Welcome from 'components/Welcome';
+import Main from 'components/Main';
+import './App.css';
 
 export default function App(props) {
   return (
     <div>
-      <Welcome />
+      <Main />
     </div>
   );
 }
